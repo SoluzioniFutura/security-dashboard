@@ -34,11 +34,14 @@ class List extends Component {
       <ul className="Linklist Linklist--padded Treeview Treeview--default js-Treeview u-text-r-xs">
         {
           this.props.data.map((item, index) => (
-            <li><a href={item['Canonical URL']} target="_blank">{item['Canonical URL']}</a>
+            <li><a href={item['Canonical URL']} target="_blank">{item.Domain}</a>
               <ul data-megamenu-class="u-columns-2">
                 {
                   Object.entries(item).map((item, index) => (
-                    <li style={{padding: '18px 0 18px 27px'}}><p style={{color: 'black'}}>{item[0]}: {item[1]}</p></li>
+                    <li style={{padding: '18px 0 18px 27px'}}>
+                      <p style={{color: 'black'}}>
+                        {item[0]}: {item[1]}
+                      </p></li>
                   ))
                 }
               </ul>
