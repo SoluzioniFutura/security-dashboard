@@ -35,6 +35,14 @@ class App extends Component {
               {/*<p className="u-padding-r-bottom u-padding-r-top u-text-p u-margin-r-bottom">Quis et id repellat harum eligendi natus. Animi voluptatem adipisci ea autem possimus laboriosam vitae deleniti voluptas. Optio veritatis in hic non illo. Dolores nam in veniam repellat aut id qui dolor.</p>*/}
               {/*<button className="Button Button--default u-text-r-xs">aut dolores exercitationem</button>*/}
             </div>
+            <div className="Hero-content">
+              <h2 className="u-text-h2 u-color-95">SPF (Sender Policy Framework)</h2>
+              <FieldPieChart data = { this.state.data } field = { 'Valid SPF' } expected = { 'True' } label = { 'SPF' }/>
+            </div>
+            <div className="Hero-content">
+              <h2 className="u-text-h2 u-color-95">DMARC (Domain-based Message Authentication, Reporting & Conformance)</h2>
+              <FieldPieChart data = { this.state.data } field = { 'Valid DMARC' } expected = { 'True' } label = { 'DMARC' }/>
+            </div>
           </section>
             <DataGrid data = { this.state.data }/>
         </div>
