@@ -59,16 +59,6 @@ class NavBar extends Component {
                 </form>
               </div>
             </div>
-
-            <div className="Header-toggle Grid-cell">
-              <a
-                className="Hamburger-toggleContainer js-fr-offcanvas-open u-nojsDisplayInlineBlock u-lg-hidden u-md-hidden"
-                href="#menu" aria-controls="menu" aria-label="accedi al menu" title="accedi al menu">
-                <span className="Hamburger-toggle" role="presentation"></span>
-                <span className="Header-toggleText" role="presentation">Menu</span>
-              </a>
-            </div>
-
           </div>
         </div>
       </header>
