@@ -9,7 +9,6 @@ class App extends Component {
     super(props)
     this.state = {
       data: [],
-      filter: ''
     }
   }
 
@@ -22,20 +21,14 @@ class App extends Component {
     }
   }
 
-  setFilter(query){
-    this.setState({ filter: query })
-    this.filter()
-  }
-
-  filter(query){
-    const data = this.state.data
-    this.setState({ data })
+  filter = (query) => {
+    console.log(query)
   }
 
   render() {
     return (
         <div>
-            <NavBar />
+            <NavBar filter={this.filter}/>
           <div className = { 'Grid Grid--withGutter u-padding-all-l' }>
             <div className = { 'Grid-cell u-size1of3 u-lg-size1of3' }>
               <h2 className = { 'u-text-h2' }>HTTPS</h2>
