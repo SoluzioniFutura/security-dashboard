@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactTable from 'react-table'
 import 'react-table/react-table.css'
+import List from '../List/'
 
 class DataGrid extends React.Component {
   constructor(props) {
@@ -21,14 +21,19 @@ class DataGrid extends React.Component {
   }
 
   render() {
-    return (
+    console.log(this.props.data)
+    console.log(this.state.headers)
+    return(
+      <List list={ this.props.data }/>
+    )
+    /*return (
       <ReactTable
         data = { this.props.data }
         columns = { this.state.headers }
         defaultPageSize = {10}
         className = { '-striped -highlight' }
       />
-    )
+    )*/
   }
 }
 
