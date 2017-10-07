@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      filter: ''
     }
   }
 
@@ -19,6 +20,16 @@ class App extends Component {
     } catch(error){
       console.log(error)
     }
+  }
+
+  setFilter(query){
+    this.setState({ filter: query })
+    this.filter()
+  }
+
+  filter(query){
+    const data = this.state.data
+    this.setState({ data })
   }
 
   render() {
