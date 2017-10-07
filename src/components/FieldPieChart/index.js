@@ -22,11 +22,11 @@ class FieldPieChart extends React.Component {
       this.setState({
         data: [
           {
-            name: nextProps.field,
+            name: nextProps.label,
             value: yes
           },
           {
-            name: `NO ${nextProps.field}`,
+            name: `No ${nextProps.label}`,
             value: nextProps.data.length - yes
           }
         ]
@@ -36,8 +36,7 @@ class FieldPieChart extends React.Component {
   }
 
   render() {
-    return ([
-      <h2>{ this.props.field }</h2>,
+    return (
       <PieChart
         width = { 350 }
         height = { 350 }
@@ -56,14 +55,15 @@ class FieldPieChart extends React.Component {
         </Pie>
         <Tooltip/>
       </PieChart>
-    ])
+    )
   }
 }
 
 FieldPieChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   field: PropTypes.string.isRequired,
-  expected: PropTypes.string.isRequired
+  expected: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
 }
 
 export default FieldPieChart
