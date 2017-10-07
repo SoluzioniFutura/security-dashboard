@@ -9,7 +9,9 @@ class FieldPieChart extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      full: false,
+      fullColor: null
     }
   }
 
@@ -19,6 +21,10 @@ class FieldPieChart extends React.Component {
           if (current[nextProps.field] === nextProps.expected) accumulator++
           return accumulator
         }, 0)
+      if (yes === nextProps.data.length || yes === 0) this.setState({
+        full: true,
+        fullColor: yes === 0 ? noColor : yesColor
+      })
       this.setState({
         data: [
           {
@@ -36,16 +42,16 @@ class FieldPieChart extends React.Component {
 
   render() {
     return (
-      <ResponsiveContainer width = { '100%' } height = { 150 }>
+      <ResponsiveContainer width = { '100%' } height = { 300 }>
         <PieChart>
           <Pie
             data = { this.state.data }
-            cx = { 150 }
-            cy = { 150 }
-            innerRadius = { 100 }
-            outerRadius = { 150 }
-            fill = "#8884d8"
-            paddingAngle = {5}
+            cx = { '50%' }
+            cy = { '50%' }
+            innerRadius = { '70%' }
+            outerRadius = { '100%' }
+            fill = { this.state.full ? this.state.fullColor : ''}
+            paddingAngle = { 0 }
           >
             <Cell fill = { yesColor } />
             <Cell fill = { noColor } />

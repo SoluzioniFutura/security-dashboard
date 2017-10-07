@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './components/NavBar'
-import DataGrid from './components/DataGrid'
+import List from './components/List'
 import getResults from './helpers/getResults'
 import FieldPieChart from './components/FieldPieChart'
 
@@ -51,8 +51,8 @@ class App extends Component {
               <FieldPieChart data = { this.state.data } field = { 'Valid DMARC' } expected = { 'True' } label = { 'DMARC' }/>
             </div>
           </div>
-          <DataGrid data = { this.state.data } />
-        </div>
+          <List data = { this.state.data }/>
+      </div>
     )
   }
 }
