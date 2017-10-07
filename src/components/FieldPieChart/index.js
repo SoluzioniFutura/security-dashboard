@@ -1,5 +1,5 @@
 import React from 'react'
-import { PieChart, Pie, Sector, Cell, Tooltip, ResponsiveContainer } from 'recharts'
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 import PropTypes from 'prop-types'
 
 const yesColor = '#99e9eb'
@@ -9,9 +9,7 @@ class FieldPieChart extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      data: [],
-      full: false,
-      fullColor: null
+      data: []
     }
   }
 
@@ -21,10 +19,6 @@ class FieldPieChart extends React.Component {
           if (current[nextProps.field] === nextProps.expected) accumulator++
           return accumulator
         }, 0)
-      if (yes === nextProps.data.length || yes === 0) this.setState({
-        full: true,
-        fullColor: yes === 0 ? noColor : yesColor
-      })
       this.setState({
         data: [
           {
@@ -50,7 +44,6 @@ class FieldPieChart extends React.Component {
             cy = { '50%' }
             innerRadius = { '70%' }
             outerRadius = { '100%' }
-            fill = { this.state.full ? this.state.fullColor : ''}
             paddingAngle = { 0 }
           >
             <Cell fill = { yesColor } />

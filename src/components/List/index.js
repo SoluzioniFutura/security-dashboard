@@ -37,10 +37,10 @@ class List extends Component {
             <li><a href={item['Canonical URL']} target="_blank">{item.Domain}</a>
               <ul data-megamenu-class="u-columns-2">
                 {
-                  Object.entries(item).map((item, index) => (
-                    <li style={{padding: '18px 0 18px 27px'}}>
+                  Object.entries(item).map(([field, value], index) => (
+                    <li style={{padding: '18px 0 18px 27px', cursor: 'default'}}>
                       <p style={{color: 'black'}}>
-                        {item[0]}: {item[1]}
+                        { field }: { value }
                       </p></li>
                   ))
                 }
@@ -49,29 +49,6 @@ class List extends Component {
           ))
         }
       </ul>
-    )
-  }
-}
-
-class ListItem extends Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      expanded: true
-    }
-  }
-
-  render(){
-    console.log(this.props.element)
-    return(
-      <div style={{borderTop: '1px solid lightgray'}}>
-        <h2>{this.props.element['Canonical URL']}</h2>
-        {
-          Object.entries(this.props.element).map((item, index) => (
-            <h3>{item[0]}: {item[1]}</h3>
-          ))
-        }
-      </div>
     )
   }
 }
