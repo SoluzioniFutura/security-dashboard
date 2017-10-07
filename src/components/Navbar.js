@@ -1,84 +1,37 @@
 import React from 'react'
 
 const Navbar = () => (
-    <nav className="Megamenu Megamenu--default js-megamenu ">
-        <ul className="Megamenu-list">
-            <li className="Megamenu-item">
-                <a href="#">
-                    Maiores eius et<br/>Aut dolores exercitationem
-                </a>
-                <div className="Megamenu-subnav u-jsDisplayNone">
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="/">Aut dolores exercitationem</a>
-                            <ul>
-                                <li><a href="/1">Rerum at labore</a></li>
-                                <li><a href="/2">Modi nostrum expedita</a></li>
-                                <li><a href="/3">Et dolores quae</a></li>
-                                <li><a href="/4">Quaerat enim saepe</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Error ut harum</a></li>
-                    </ul>
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="">Magni voluptatem non</a>
-                            <ul>
-                                <li><a href="/1">Omnis quaerat vitae</a></li>
-                                <li><a href="/2">Deleniti voluptatem pariatur</a></li>
-                                <li><a href="/3">Maiores eius et</a></li>
-                                <li><a href="/4">Aut dolores exercitationem</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Rerum at labore</a></li>
-                    </ul>
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="">Modi nostrum expedita</a>
-                            <ul>
-                                <li><a href="/1">Et dolores quae</a></li>
-                                <li><a href="/2">Quaerat enim saepe</a></li>
-                                <li><a href="/3">Error ut harum</a></li>
-                                <li><a href="/4">Magni voluptatem non</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Omnis quaerat vitae</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li className="Megamenu-item">
-                <a href="#">Deleniti voluptatem pariatur</a>
-                <div className="Megamenu-subnav u-jsDisplayNone">
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="/1">Maiores eius et</a></li>
-                        <li><a href="/2">Aut dolores exercitationem</a></li>
-                    </ul>
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="/1">Rerum at labore</a></li>
-                        <li><a href="/2">Modi nostrum expedita</a></li>
-                    </ul>
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="/1">Et dolores quae</a></li>
-                        <li><a href="/2">Quaerat enim saepe</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li className="Megamenu-item">
-                <a href="#">Error ut harum</a>
-                <div className="Megamenu-subnav u-jsDisplayNone">
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="/1">Magni voluptatem non</a></li>
-                        <li><a href="/2">Omnis quaerat vitae</a></li>
-                    </ul>
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="/1">Deleniti voluptatem pariatur</a></li>
-                        <li><a href="/2">Maiores eius et</a></li>
-                    </ul>
-                    <ul className="Megamenu-subnavGroup">
-                        <li><a href="/1">Aut dolores exercitationem</a></li>
-                        <li><a href="/2">Rerum at labore</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </nav>
+  <header className="Header  u-hiddenPrint">
+
+    <div className="Header-navbar ">
+      <div className="u-layout-wide Grid Grid--alignMiddle u-layoutCenter">
+
+        <div className="Header-title Grid-cell">
+          <h1 className="Header-titleLink">
+            <a href="/">Dashboard</a>
+          </h1>
+        </div>
+
+        <div className="Header-searchTrigger Grid-cell">
+          <button aria-controls="header-search" className="js-Header-search-trigger Icon Icon-search "
+                  title="attiva il form di ricerca" aria-label="attiva il form di ricerca" aria-hidden="false">
+          </button>
+          <button aria-controls="header-search" className="js-Header-search-trigger Icon Icon-close u-hidden "
+                  title="disattiva il form di ricerca" aria-label="disattiva il form di ricerca" aria-hidden="true">
+          </button>
+        </div>
+
+        <div className="Header-toggle Grid-cell">
+          <a className="Hamburger-toggleContainer js-fr-offcanvas-open u-nojsDisplayInlineBlock u-lg-hidden u-md-hidden"
+             href="#menu" aria-controls="menu" aria-label="accedi al menu" title="accedi al menu">
+            <span className="Hamburger-toggle" role="presentation"/>
+            <span className="Header-toggleText" role="presentation">Menu</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
 )
 
 export default Navbar
