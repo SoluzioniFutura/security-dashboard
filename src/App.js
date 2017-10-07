@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import Navbar from './components/Navbar'
 import DataGrid from './components/DataGrid'
 import getResults from './helpers/getResults'
