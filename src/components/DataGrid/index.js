@@ -26,14 +26,6 @@ class DataGrid extends React.Component {
     return(
       <List list={ this.props.data }/>
     )
-    /*return (
-      <ReactTable
-        data = { this.props.data }
-        columns = { this.state.headers }
-        defaultPageSize = {10}
-        className = { '-striped -highlight' }
-      />
-    )*/
   }
 }
 

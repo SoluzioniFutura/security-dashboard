@@ -1,9 +1,9 @@
 import React from 'react'
-import { PieChart, Pie, Sector, Cell, Tooltip } from 'recharts'
+import { PieChart, Pie, Sector, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 import PropTypes from 'prop-types'
 
-const yesColor = '#59c5a0'
-const noColor = '#f37e40'
+const yesColor = '#99e9eb'
+const noColor = '#ce716b'
 
 class FieldPieChart extends React.Component {
   constructor (props) {
@@ -31,30 +31,28 @@ class FieldPieChart extends React.Component {
           }
         ]
       })
-      console.log(nextProps.data)
     }
   }
 
   render() {
     return (
-      <PieChart
-        width = { 350 }
-        height = { 350 }
-      >
-        <Pie
-          data = { this.state.data }
-          cx = { 150 }
-          cy = { 150 }
-          innerRadius = { 100 }
-          outerRadius = { 150 }
-          fill="#8884d8"
-          paddingAngle={5}
-        >
-          <Cell fill = { yesColor } />
-          <Cell fill = { noColor } />
-        </Pie>
-        <Tooltip/>
-      </PieChart>
+      <ResponsiveContainer width = { '100%' } height = { 300 }>
+        <PieChart>
+          <Pie
+            data = { this.state.data }
+            cx = { 150 }
+            cy = { 150 }
+            innerRadius = { 100 }
+            outerRadius = { 150 }
+            fill = "#8884d8"
+            paddingAngle = {5}
+          >
+            <Cell fill = { yesColor } />
+            <Cell fill = { noColor } />
+          </Pie>
+          <Tooltip/>
+        </PieChart>
+      </ResponsiveContainer>
     )
   }
 }
