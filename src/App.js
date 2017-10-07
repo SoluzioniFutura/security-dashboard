@@ -1,7 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import logo from './logo.svg';
 import Navbar from './components/Navbar'
+import DataGrid from './components/DataGrid'
+import getResults from './helpers/getResults'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data: []
+    }
+  }
+
+  async componentDidMount() {
+    try{
+      const data = await getResults()
+      this.setState({ data })
+    } catch(error){
+      console.log(error)
+    }
+  }
+
   render() {
     return (
         <div>
@@ -16,6 +35,7 @@ class App extends Component {
               <button className="Button Button--default u-text-r-xs">aut dolores exercitationem</button>
             </div>
           </section>
+            <DataGrid data = { this.state.data }/>
         </div>
     );
   }
