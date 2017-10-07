@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { csv } from 'd3-request'
 import Navbar from './components/Navbar'
+import getResults from './helpers/getResults'
 
 class App extends Component {
   componentDidMount() {
-    csv('./results/pshtt.csv', (error))
+    getResults()
+      .then(data => console.log(data))
+      .catch(err => console.log('errore'))
   }
   render() {
     return (
