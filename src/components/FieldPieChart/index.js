@@ -36,7 +36,7 @@ class FieldPieChart extends React.Component {
 
   render() {
     return (
-      <ResponsiveContainer width = { '100%' } height = { 300 }>
+      <ResponsiveContainer width = { '100%' } height = { 150 }>
         <PieChart>
           <Pie
             data = { this.state.data }

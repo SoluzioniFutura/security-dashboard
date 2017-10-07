@@ -1,5 +1,4 @@
 import React from 'react'
-import 'react-table/react-table.css'
 import List from '../List/'
 
 class DataGrid extends React.Component {
