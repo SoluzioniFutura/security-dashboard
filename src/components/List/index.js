@@ -10,12 +10,14 @@ class List extends Component {
   }
 
   componentDidMount(){
-    this.loadScript('/iwt/IWT.min.js')
+    // this.loadScript('/iwt/IWT.min.js')
   }
 
   componentDidUpdate(){
-    this.loadScript('/iwt/IWT.min.js')
+    // this.loadScript('/iwt/IWT.min.js')
   }
+
+    /*
 
   loadScript(src){
     const script = document.createElement('script')
@@ -23,6 +25,7 @@ class List extends Component {
     script.id = 'IWTScript'
     document.body.appendChild(script)
   }
+  */
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.data[0])
