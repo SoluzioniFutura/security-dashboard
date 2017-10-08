@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Logo from '../../img/logo-it.png'
 
 class NavBar extends Component {
   constructor(props){
@@ -21,6 +22,12 @@ class NavBar extends Component {
 
         <div className="Header-navbar ">
           <div className="u-layout-wide Grid Grid--alignMiddle u-layoutCenter">
+
+            <div class="Header-logo Grid-cell" aria-hidden="true">
+              <a href="" tabindex="-1">
+                <img src={Logo} alt="Logo"/>
+              </a>
+            </div>
 
             <div className="Header-title Grid-cell">
               <h1 className="Header-titleLink">
