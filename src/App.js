@@ -7,34 +7,36 @@ import Dropzone from 'react-dropzone'
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       hasFile: false,
       data: [],
       filtered: [],
       error: false
     }
+    this.filter = this.filter.bind(this)
+
+    this.checkFile = files => {
+      files.forEach(file => {
+        if(file.name.indexOf('.csv') === -1) return this.setState({ error: true })
+      })
+      this.setState({ hasFile: true, error: false })
+      const filteredFiles = files.sort((a, b) => {
+        return a.name.localeCompare(b.name)
+      })
+      getResults(filteredFiles)
+        .then(data => {
+          this.setState({ data, filtered: data })
+        })
+        .catch(ignore => {})
+    }
   }
 
-  filter = (query) => {
+  filter(query) {
     const filtered = this.state.data.filter(item => {
       return item['Canonical URL'].indexOf(query) > -1
-    });
-    this.setState({ filtered })
-  };
-
-  checkFile = async(files) => {
-    files.forEach(file => {
-      if(file.name.indexOf('.csv') === -1) return this.setState({ error: true })
     })
-    this.setState({ hasFile: true, error: false });
-    const filteredFiles = files.sort((a, b) => {
-      return a.name.localeCompare(b.name)
-    });
-    try{
-      const data = await getResults(filteredFiles);
-      this.setState({ data, filtered: data })
-    } catch(ignore){}
+    this.setState({ filtered })
   };
 
   render() {
@@ -102,4 +104,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App

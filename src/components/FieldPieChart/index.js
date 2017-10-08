@@ -49,7 +49,7 @@ class FieldPieChart extends React.Component {
             <Cell fill = { yesColor } />
             <Cell fill = { noColor } />
           </Pie>
-          <Legend align="left" layout="vertical" height={30} verticalAlign="top" height={36}/>
+          <Legend align="left" layout="vertical" verticalAlign="top" height={36}/>
           <Tooltip/>
         </PieChart>
       </ResponsiveContainer>

@@ -2,9 +2,9 @@ import { csv } from 'd3-request'
 
 const getResults = ([pshtt, trustymail]) => new Promise((resolve, reject) => {
   csv(pshtt.preview, (error, pshttData) => {
-    if (error) return reject(error);
+    if (error) return reject(error)
     csv(trustymail.preview, (error, trustymailData) => {
-      if (error) return reject(error);
+      if (error) return reject(error)
       resolve(pshttData.map(row => ({
         ...row,
         ...trustymailData.reduce((accumulator, current) => {
@@ -16,6 +16,6 @@ const getResults = ([pshtt, trustymail]) => new Promise((resolve, reject) => {
       })))
     })
   })
-});
+})
 
 export default getResults

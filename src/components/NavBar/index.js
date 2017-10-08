@@ -8,9 +8,10 @@ class NavBar extends Component {
     this.state = {
       value: ''
     }
+    this.setValue = this.setValue.bind(this)
   }
 
-  setValue = (event) => {
+  setValue(event) {
     const value = event.currentTarget.value
     this.setState({ value })
     this.props.filter(value)
@@ -49,7 +50,7 @@ class NavBar extends Component {
 
             <div className="Header-utils Grid-cell">
               <div className="Header-search" id="header-search">
-                <form className="Form">
+                <form className="Form" onSubmit={(e) => {e.preventDefault()}}>
                   <div
                     className="Form-field Form-field--withPlaceholder Grid u-background-white u-color-grey-30 u-borderRadius-s"
                     role="search">
