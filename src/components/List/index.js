@@ -10,13 +10,12 @@ class List extends Component {
   }
 
   componentDidMount(){
-    this.loadScript('/iwt/IWT.min.js')
+    this.loadScript('https://soluzionifutura.github.io/security-dashboard/iwt/IWT.min.js')
   }
 
   componentDidUpdate(){
-    this.loadScript('/iwt/IWT.min.js')
+    this.loadScript('https://soluzionifutura.github.io/security-dashboard/iwt/IWT.min.js')
   }
-
   loadScript(src){
     const script = document.createElement('script')
     script.src = src

@@ -4,4 +4,4 @@ Users can either use the default list of domains or upload their own *pshtt.csv*
 
 The application can be viewed at the following address:
 
-https://soluzionifutura.github.io/security-dashboard/
+https://soluzionifutura.github.io/security-dashboard/index.html
