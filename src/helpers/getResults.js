@@ -1,8 +1,6 @@
 import { csv } from 'd3-request'
-import pshtt from '../results/pshtt.csv'
-import trustymail from '../results/trustymail.csv'
 
-const getResults = () => new Promise((resolve, reject) => {
+const getResults = ([pshtt, trustymail]) => new Promise((resolve, reject) => {
   csv(pshtt, (error, pshttData) => {
     if (error) return reject(error)
     csv(trustymail, (error, trustymailData) => {
