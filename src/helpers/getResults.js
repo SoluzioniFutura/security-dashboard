@@ -1,9 +1,9 @@
 import { csv } from 'd3-request'
 
 const getResults = ([pshtt, trustymail]) => new Promise((resolve, reject) => {
-  csv(pshtt.preview, (error, pshttData) => {
+  csv(pshtt, (error, pshttData) => {
     if (error) return reject(error)
-    csv(trustymail.preview, (error, trustymailData) => {
+    csv(trustymail, (error, trustymailData) => {
       if (error) return reject(error)
       resolve(pshttData.map(row => ({
         ...row,

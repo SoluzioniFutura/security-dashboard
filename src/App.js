@@ -15,21 +15,22 @@ class App extends Component {
       error: false
     }
     this.filter = this.filter.bind(this)
+    this.checkFile = this.checkFile.bind(this)
+  }
 
-    this.checkFile = files => {
-      files.forEach(file => {
-        if(file.name.indexOf('.csv') === -1) return this.setState({ error: true })
+  checkFile(files) {
+    files.forEach(file => {
+      if(file.name.indexOf('.csv') === -1) return this.setState({ error: true })
+    })
+    this.setState({ hasFile: true, error: false })
+    const filteredFiles = files.sort((a, b) => {
+      return a.name.localeCompare(b.name)
+    })
+    getResults(filteredFiles.map(item => item.preview))
+      .then(data => {
+        this.setState({ data, filtered: data })
       })
-      this.setState({ hasFile: true, error: false })
-      const filteredFiles = files.sort((a, b) => {
-        return a.name.localeCompare(b.name)
-      })
-      getResults(filteredFiles)
-        .then(data => {
-          this.setState({ data, filtered: data })
-        })
-        .catch(ignore => {})
-    }
+      .catch(ignore => {})
   }
 
   filter(query) {
@@ -37,7 +38,7 @@ class App extends Component {
       return item['Canonical URL'].indexOf(query) > -1
     })
     this.setState({ filtered })
-  };
+  }
 
   render() {
     return (
