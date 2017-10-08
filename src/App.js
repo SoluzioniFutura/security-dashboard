@@ -24,17 +24,15 @@ class App extends Component {
   }
 
   checkFile = async(files) => {
-    files.forEach(file => {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        console.log(file)
-      }
-    })
-
     if(files[0].name.indexOf('.csv') > -1) {
-      this.setState({ hasFile: true, error: false, file: files[0] })
+      this.setState({ hasFile: true, error: false })
       const filteredFiles = files.sort((a, b) => {
         return a.name.localeCompare(b.name)
+      })
+      const textData = filteredFiles.map(file => {
+        const reader = new FileReader()
+        reader.onload = () => { return reader.result }
+        reader.readAsText(file)
       })
       try{
         const data = await getResults(filteredFiles)
@@ -89,7 +87,18 @@ class App extends Component {
             <div style={{margin: '20px'}}>
               <Dropzone
                 onDrop={this.checkFile}
-              />
+                style={{
+                  width: '100%',
+                  borderColor: 'rgb(102, 102, 102)',
+                  borderStyle: 'dashed',
+                  height: '40vh',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                Carica i file pshtt.csv e trustymail.csv
+              </Dropzone>
             </div>
           )
         }
