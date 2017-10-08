@@ -1,5 +1,5 @@
 import React from 'react'
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts'
 import PropTypes from 'prop-types'
 
 const yesColor = '#99e9eb'
@@ -49,6 +49,7 @@ class FieldPieChart extends React.Component {
             <Cell fill = { yesColor } />
             <Cell fill = { noColor } />
           </Pie>
+          <Legend align="left" layout="vertical" height={30} verticalAlign="top" height={36}/>
           <Tooltip/>
         </PieChart>
       </ResponsiveContainer>

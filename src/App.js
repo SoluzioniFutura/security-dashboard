@@ -7,7 +7,7 @@ import Dropzone from 'react-dropzone'
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       hasFile: false,
       data: [],
@@ -19,28 +19,23 @@ class App extends Component {
   filter = (query) => {
     const filtered = this.state.data.filter(item => {
       return item['Canonical URL'].indexOf(query) > -1
-    })
+    });
     this.setState({ filtered })
-  }
+  };
 
   checkFile = async(files) => {
-    if(files[0].name.indexOf('.csv') > -1) {
-      this.setState({ hasFile: true, error: false })
-      const filteredFiles = files.sort((a, b) => {
-        return a.name.localeCompare(b.name)
-      })
-      const textData = filteredFiles.map(file => {
-        const reader = new FileReader()
-        reader.onload = () => { return reader.result }
-        reader.readAsText(file)
-      })
-      try{
-        const data = await getResults(filteredFiles)
-        this.setState({ data, filtered: data })
-      } catch(ignore){}
-    }
-    else return this.setState({ error: true })
-  }
+    files.forEach(file => {
+      if(file.name.indexOf('.csv') === -1) return this.setState({ error: true })
+    })
+    this.setState({ hasFile: true, error: false });
+    const filteredFiles = files.sort((a, b) => {
+      return a.name.localeCompare(b.name)
+    });
+    try{
+      const data = await getResults(filteredFiles);
+      this.setState({ data, filtered: data })
+    } catch(ignore){}
+  };
 
   render() {
     return (
