@@ -1,6 +1,7 @@
 {
   "name": "security-dashboard",
   "version": "0.1.0",
+  "homepage": "https://soluzionifutura.github.io/security-dashboard/",
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.2",
