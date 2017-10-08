@@ -24,8 +24,8 @@ class NavBar extends Component {
         <div className="Header-navbar ">
           <div className="u-layout-wide Grid Grid--alignMiddle u-layoutCenter">
 
-            <div class="Header-logo Grid-cell" aria-hidden="true">
-              <a href="" tabindex="-1">
+            <div className="Header-logo Grid-cell" aria-hidden="true">
+              <a href="" tabIndex="-1">
                 <img src={Logo} alt="Logo"/>
               </a>
             </div>
