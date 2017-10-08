@@ -5,6 +5,9 @@ import getResults from './helpers/getResults'
 import FieldPieChart from './components/FieldPieChart'
 import Dropzone from 'react-dropzone'
 
+import defaultTrustymail from './results/trustymail.csv'
+import defaultPshtt from './results/pshtt.csv'
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -83,6 +86,15 @@ class App extends Component {
             </div>
           ) : (
             <div style={{margin: '20px'}}>
+              <a onClick = {(e) => {
+                e.preventDefault()
+                this.setState({ hasFile: true, error: false })
+                getResults([defaultPshtt, defaultTrustymail])
+                  .then(data => {
+                    this.setState({ data, filtered: data })
+                  })
+                  .catch(ignore => {})
+              }} style = {{ "cursor": "pointer" }}>Usa i file di esempio</a>
               <Dropzone
                 onDrop={this.checkFile}
                 style={{
